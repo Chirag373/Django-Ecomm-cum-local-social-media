@@ -1,0 +1,49 @@
+{% extends 'app/Navbar.html' %}
+{% block content %}
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    form.example input[type=text] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+        margin-top: 20%;
+        border-radius: 20px;
+    }
+
+    form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #4267B2;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+        margin-top: 20%;
+        border-radius: 20px;
+    }
+
+    form.example button:hover {
+        background: #4868a8;
+    }
+
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
+
+<form class="example" action="" style="margin:auto;max-width:300px">
+    <input type="text" placeholder="Search by name..." name="search2">
+    <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+<center><div><h4 style="color:lightgrey;">Content Shows here...</h4></div>
+{% endblock %}

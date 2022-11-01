@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #4267B2;
+  overflow: auto;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #4267B2;
+}
+
+.active {
+  background-color: #4267B2;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+</style>
+<body>
+
+<div class="navbar">
+  <a class="active" href="{% url 'index' %}">Zetconnect</a> 
+  <!-- <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>  -->
+  <a href="{% url 'contact' %}"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+  <a href="{% url 'showdata' %}"><i class="fa fa-wrench"></i> Services</a>
+  {% if 'user' in request.session %}
+  <a href="{% url 'postcard' %}" style="float: right;"><i class="fa fa-plus"></i> Post</a>
+  <a href="{% url 'logout' %}" style="float: right;"><i class="fa fa-fw fa-user"></i> Logout</a>
+  
+  {% else %}
+  <a href="{% url 'signup' %}" style="float: right;"><i class="fa fa-plus"></i> signup</a>
+  <a href="{% url 'login' %}" style="float: right;"><i class="fa fa-fw fa-user"></i> login</a>
+  {% endif %}
+  
+</div>
+{% block content %}
+{% endblock %}
+</body>
+</html> 

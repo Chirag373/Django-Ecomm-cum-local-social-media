@@ -1,0 +1,27 @@
+{% extends 'app/Navbar.html' %}
+{% block content %}
+<style>
+    .container img{
+        height: 40%;
+        width: 50%;
+        margin-top: 5%;
+        border: 1px solid grey;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px black;
+    }
+</style>
+
+<center>
+{% if data %}
+<div class="container">
+    <img src="{{ data.img.url }}">
+    <h2 style="color: white;background: #4267B2;">{{ data.title }}</h2>
+    <h5>Product Description:</h5><h6>{{ data.description }}</h6>
+    <h5>Price:</h5><h2>${{ data.price }}</h2>
+    <button style="background-color: #4267B2;color: #fff;padding: 10px 15px;border: none;">Buy</button>
+    <h1>{{data.Email}}</h1>
+</div>
+{% endif %}
+
+</center>
+
+{% endblock %}

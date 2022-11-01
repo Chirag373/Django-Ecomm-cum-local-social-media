@@ -1,0 +1,51 @@
+{% extends 'app/Navbar.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/post_card_form.css' %}">
+<form action="{% url 'product' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if 'user' in request.session %}
+    <h1><strong>Create Post</strong></h1>
+    <div class="form-group">
+        <label for="caption">Category</label>
+        <input type="text" name="category" id="caption" class="form-controll" />
+    </div>
+
+    <div class="form-group">
+        <label for="caption">Title </label>
+        <input type="text" name="title" id="caption" class="form-controll" />
+    </div>
+
+    <div class="form-group">
+        <label for="caption">Description</label>
+        <input type="text" name="description" id="caption" class="form-controll" />
+    </div>
+
+    <div class="form-group">
+        <label for="caption">Price</label>
+        <input type="text" name="price" id="caption" class="form-controll" />
+    </div>
+
+    <div class="form-group file-area">
+        <label for="images">Images <span>Your images should be at least 400x300 wide</span></label>
+        <input type="file" name="images" id="images" required="required" multiple="multiple" />
+        <div class="file-dummy">
+            <div class="success">Great, your files are selected. Keep on.</div>
+            <div class="default">Please select some files</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit">Post</button>
+    </div>
+    {% else %}
+    <div class="login3" style="margin-top: 20%;">
+    <center><h2>Login</h2><a href="{% url 'login' %}" style="color: white;"><h2>Here</h2></a><h2>Create Post</h2></center>
+    </div>
+    {% endif %}
+</form>
+
+
+<link href='https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
+
+{% endblock %}

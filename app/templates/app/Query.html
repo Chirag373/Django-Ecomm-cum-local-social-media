@@ -1,0 +1,22 @@
+{% extends 'app/Navbar.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/style.css' %}">
+<div class="login-form">
+    <form action="{% url 'Queries' %}" method="post">
+        {% csrf_token %}
+      
+        <h2 class="text-center">Query Page</h2>   
+        <div class="form-group has-error">
+        	<input type="text" class="form-control" name="query_title" placeholder="Title of Query" required="required">
+        </div>
+		<div class="form-group">
+            <input type="text" class="form-control" name="query" placeholder="Your Query" required="required">
+        </div>        
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Send Query</button>
+        </div>
+    </form>
+    <p class="text-center small">Don't have an account? <a href="{% url 'signup' %}">Sign up here!</a></p>
+</div>
+{% endblock %}
